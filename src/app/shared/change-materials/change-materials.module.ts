@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatIconModule } from '@angular/material/icon';
+import { MatCardModule } from "@angular/material/card";
 
 @NgModule({
   declarations: [],
@@ -11,7 +12,8 @@ import { MatIconModule } from '@angular/material/icon';
     ReactiveFormsModule,
     MatGridListModule,
     MatIconModule,
+    MatCardModule
   ],
-  exports: [ReactiveFormsModule, MatGridListModule, MatIconModule],
+  exports: [ReactiveFormsModule, MatGridListModule, MatIconModule, MatCardModule],
 })
 export class ChangeMaterialsModule {}

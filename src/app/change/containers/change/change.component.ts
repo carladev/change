@@ -1,11 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {
   FormGroup,
-  FormControl,
   FormBuilder,
-  Validators,
-  FormControlName,
-  RequiredValidator,
+  
 } from '@angular/forms';
 @Component({
   selector: 'app-change',
@@ -14,7 +11,8 @@ import {
 })
 export class ChangeComponent implements OnInit {
   public change: FormGroup;
-  cambio: number;
+  cash = [0.01, 0.02, 0.05, 0.1, 0.2, 0.5, 1, 2, 5, 10, 20, 50, 100, 200, 500];
+
 
   constructor(fb: FormBuilder) {
     this.change = fb.group({
@@ -44,6 +42,24 @@ export class ChangeComponent implements OnInit {
   restValue(name) {
     this.change.get(name).setValue(this.change.get(name).value - 1);
   }
+bill(change = this.change, cash=this.cash){
+  for (const property in change) {
+    console.log(`${property}: ${change[property]}`);
 
+    // la idea es que una vez recorrido el objeto como he ehcho arriva en la posicion donde 
+    // algun el valor no sea null se multiplique el valor * lo que vale ese posicion en el array
+   for (let i = 0; i < cash.length; i++) {
+     const element = cash[i];
+     
+   }
+
+    if (property!=null){
+
+  
+
+    }
+
+  }
+}
   ngOnInit(): void {}
 }
