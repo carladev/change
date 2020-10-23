@@ -1,65 +1,42 @@
 import { Component, OnInit } from '@angular/core';
-import {
-  FormGroup,
-  FormBuilder,
-  
-} from '@angular/forms';
+
 @Component({
   selector: 'app-change',
   templateUrl: './change.component.html',
   styleUrls: ['./change.component.scss'],
 })
 export class ChangeComponent implements OnInit {
-  public change: FormGroup;
-  cash = [0.01, 0.02, 0.05, 0.1, 0.2, 0.5, 1, 2, 5, 10, 20, 50, 100, 200, 500];
+  total = 0;
 
+  cash = [
+    { value: 5, name: '5euro', imageSrc: '5eur.jpg', count: 0 },
+    { value: 10, name: '10euro', imageSrc: '10eur.jpg', count: 0 },
+    { value: 20, name: '20euro', imageSrc: '20eur.jpg', count: 0 },
+    { value: 50, name: '50euro', imageSrc: '50eur.jpg', count: 0 },
+    { value: 100, name: '100euro', imageSrc: '100eur.jpg', count: 0 },
+    { value: 200, name: '200euro', imageSrc: '200eur.jpg', count: 0 },
+    { value: 500, name: '500euro', imageSrc: '500eur.jpg', count: 0 },
+    { value: 0.01, name: '1cent', imageSrc: '1c.jpg', count: 0 },
+    { value: 0.02, name: '2cent', imageSrc: '2c.jpg', count: 0 },
+    { value: 0.05, name: '5cent', imageSrc: '5c.jpg', count: 0 },
+    { value: 0.1, name: '10cent', imageSrc: '10c.jpg', count: 0 },
+    { value: 0.2, name: '20cent', imageSrc: '20c.jpg', count: 0 },
+    { value: 0.5, name: '50cent', imageSrc: '50c.jpg', count: 0 },
+    { value: 1, name: '1euro', imageSrc: '1eur.jpg', count: 0 },
+    { value: 2, name: '2euro', imageSrc: '2eur.jpg', count: 0 },
+  ];
 
-  constructor(fb: FormBuilder) {
-    this.change = fb.group({
-      cent1: null,
-      cent2: null,
-      cent5: null,
-      cent10: null,
-      cent20: null,
-      cent50: null,
-      euro1: null,
-      euro2: null,
-      billet5: null,
-      billet10: null,
-      billet20: null,
-      billet50: null,
-      billet100: null,
-      billet200: null,
-      billet500: null,
-    });
-    this.change.valueChanges.subscribe;
+  constructor() {}
+
+  addValue(coins) {
+    coins.count += 1;
+    this.total += coins.value;
+    console.log(this.total);
   }
 
-  addValue(name) {
-    this.change.get(name).setValue(this.change.get(name).value + 1);
+  deleteTotal() {
+    this.total = 0;
   }
 
-  restValue(name) {
-    this.change.get(name).setValue(this.change.get(name).value - 1);
-  }
-bill(change = this.change, cash=this.cash){
-  for (const property in change) {
-    console.log(`${property}: ${change[property]}`);
-
-    // la idea es que una vez recorrido el objeto como he ehcho arriva en la posicion donde 
-    // algun el valor no sea null se multiplique el valor * lo que vale ese posicion en el array
-   for (let i = 0; i < cash.length; i++) {
-     const element = cash[i];
-     
-   }
-
-    if (property!=null){
-
-  
-
-    }
-
-  }
-}
   ngOnInit(): void {}
 }
